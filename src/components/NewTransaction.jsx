@@ -42,7 +42,7 @@ export const NewTransaction = ({ addTransaction }) => {
       </div>
       <div className='mb-4'>
         <label className='block text-gray-700 text-sm font-bold mb-2'>
-          Amount (negative - expense, positive - income)
+          Amount ('-' expense, '+' income)
         </label>
         <input
           value={amount}
