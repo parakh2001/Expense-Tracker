@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
-
 export const NewTransaction = ({ addTransaction }) => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
-
   function handleText(e) {
     setText(e.target.value);
   }
-
   function handleAmount(e) {
     setAmount(e.target.value);
   }
-
   function handleAddTransaction(e) {
     e.preventDefault();
-
     const newTransaction = {
-      Transaction: text,
+      Transaction: text.charAt(0).toUpperCase() + text.slice(1),
       Amount: parseFloat(amount),
     };
-
     addTransaction(newTransaction);
-
-    // Clear input fields after adding the transaction
     setText('');
     setAmount('');
   }
