@@ -6,19 +6,18 @@ import { History } from './components/History';
 import { NewTransaction } from './components/NewTransaction';
 function App() {
   const [transactions, setTransactions] = useState([]);
-  // Load transactions from localStorage when the component mounts
   useEffect(() => {
     const savedTransactions = localStorage.getItem('transactions');
     if (savedTransactions) {
       setTransactions(JSON.parse(savedTransactions));
     }
   }, []);
-  // Save transactions to localStorage whenever they change
   useEffect(() => {
     if (transactions.length > 0) {
       localStorage.setItem('transactions', JSON.stringify(transactions));
     }
   }, [transactions]);
+
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
   };
