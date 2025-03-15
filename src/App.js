@@ -35,13 +35,18 @@ function App() {
     const balance = income - expense;
     return { income, expense, balance };
   };
+  const onDelete = (index) => {
+    const updatedTransactions = transactions.filter((_, i) => i !== index);
+    setTransactions(updatedTransactions);
+    localStorage.setItem("transactions", JSON.stringify(updatedTransactions));
+  };
   const { income, expense, balance } = calculateIncomeAndExpense();
   return (
     <>
       <Header />
       <Balance balance={balance} />
       <IncomeExpense income={income} expense={expense} />
-      <History transactions={transactions} />
+      <History transactions={transactions} onDelete={onDelete} />
       <NewTransaction addTransaction={addTransaction} />
     </>
   );
