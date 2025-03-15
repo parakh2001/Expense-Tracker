@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FaCalendarAlt } from "react-icons/fa";
-
 export const NewTransaction = ({ addTransaction }) => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
