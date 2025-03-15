@@ -41,13 +41,16 @@ function App() {
   };
   const { income, expense, balance } = calculateIncomeAndExpense();
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Header />
-      <Balance balance={balance} />
-      <IncomeExpense income={income} expense={expense} />
-      <History transactions={transactions} onDelete={onDelete} />
-      <NewTransaction addTransaction={addTransaction} />
-    </>
+      {/* Main Content (Scrollable if needed) */}
+      <div className="flex-1 overflow-auto p-4">
+        <Balance balance={balance} />
+        <IncomeExpense income={income} expense={expense} />
+        <History transactions={transactions} onDelete={onDelete} />
+        <NewTransaction addTransaction={addTransaction} />
+      </div>
+    </div>
   );
 }
 export default App;
